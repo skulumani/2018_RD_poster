@@ -21,7 +21,7 @@ This allows one to easily reuse this for other purposes.
 
 ## Tips
 
-* [Linux WikiBook(https://en.wikibooks.org/wiki/Linux_Guide)
+* [Linux WikiBook](https://en.wikibooks.org/wiki/Linux_Guide)
 * [Beamer Guide](http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
 
 * It would make sense to [fork](https://help.github.com/articles/fork-a-repo/) this repository and modify it for your own poster. 
