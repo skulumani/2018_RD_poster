@@ -1,3 +1,19 @@
+| Build Status                             | Latest Release                                      | Version                                            | Last Commit                                                    | Activity                                    |
+| :--------------------------------------: | :--------------------------:                        | :----:                                             | :------:                                                       | :------:                                    |
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] |
+
+
+[travis_shield]: https://travis-ci.org/fdcl-gwu/poster_template.svg?branch=master
+[release_shield]: https://img.shields.io/github/release/fdcl-gwu/poster_template.svg
+[version_shield]: https://badge.fury.io/gh/fdcl-gwu%2Fposter_template.svg
+[last_commit_shield]: https://img.shields.io/github/last-commit/fdcl-gwu/poster_template.svg
+[activity_shield]: https://img.shields.io/github/commit-activity/y/fdcl-gwu/poster_template.svg
+
+[travis]: https://travis-ci.org/fdcl-gwu/poster_template
+[github_release]: https://github.com/fdcl-gwu/poster_template/releases/latest
+[github_version]: https://badge.fury.io/gh/fdcl-gwu%2Fposter_template
+[github_last_commit]: https://github.com/fdcl-gwu/poster_template/commits/master
+[github_activity]: https://github.com/fdcl-gwu/poster_template/graphs/commit-activity
 ## GWU Poster Template
 
 This is a poster template for the [GWU R&D Showcase](https://www.seas.gwu.edu/RDshowcase).
