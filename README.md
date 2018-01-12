@@ -14,6 +14,7 @@
 [github_version]: https://badge.fury.io/gh/fdcl-gwu%2Fposter_template
 [github_last_commit]: https://github.com/fdcl-gwu/poster_template/commits/master
 [github_activity]: https://github.com/fdcl-gwu/poster_template/graphs/commit-activity
+
 ## GWU Poster Template
 
 This is a poster template for the [GWU R&D Showcase](https://www.seas.gwu.edu/RDshowcase).
