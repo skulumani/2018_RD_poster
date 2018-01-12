@@ -51,15 +51,15 @@
 \usepackage[]{hyperref} % links to stuff
 \hypersetup{
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdftoolbar=false,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitV},    % fits the width of the page to the window
-    pdftitle={},    % title
-    pdfauthor={Shankar Kulumani},     % author
-    pdfsubject={},   % subject of the document
-    pdfcreator={Shankar Kulumani},   % creator of the document
-    pdfproducer={Shankar Kulumani}, % producer of the document
+    pdftitle={\inserttitle},    % title
+    pdfauthor={\insertauthor},     % author
+    pdfsubject={\insertsubtitle},   % subject of the document
+    pdfcreator={\insertauthor},   % creator of the document
+    pdfproducer={\insertauthor}, % producer of the document
     pdfkeywords={}, % list of keywords
     pdfnewwindow=true,      % links in new PDF window
     colorlinks=false,       % false: boxed links; true: colored links
