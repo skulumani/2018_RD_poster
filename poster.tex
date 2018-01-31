@@ -173,11 +173,11 @@
 \begin{block}{Shape model reconstruction from LIDAR} % results block
     \begin{minipage}[t]{0.5\columnwidth}
     \begin{itemize}
-        \item Transfer between two periodic orbits of 4769 Castalia
-        \begin{itemize}
-            \item Thruster represents a current electric propulsion \( \approx \SI{600}{\milli\newton}\)
-            \item Combining multiple iterations of the \Emph{rechability} computation allows for general transfers
-        \end{itemize}
+        \item Reconstruct the shape of Itokawa from LIDAR
+            \begin{itemize}
+                \item Powerful laser is used to accurately measure the distance from spacecraf to surface
+                \item Accurate timing used to measure the total time of flight \( d = c \frac{t}{2} \)
+            \end{itemize}
         \item Combining four iterations of the reachability set
         \begin{itemize}
             \item Each iteration of the reachability set enlarges the achievable states
@@ -191,16 +191,11 @@
     \end{minipage}~
     \begin{minipage}[t]{0.5\columnwidth}
     \begin{itemize}
-        \item \Emph{Optimal Control} is used to calculate the reachability set
-            \[
-            J = -\frac{1}{2} \left( \vecbf{x}(t_f) - \vecbf{x}_{n}(t_f)\right)^T Q \left( \vecbf{x}(t_f) - \vecbf{x}_{n}(t_f)\right) 
-            \]
-        \item Maximize the distance on the section using the low thrust propulsion
-        \item Thruster magnitude is limited by physical system
-        \[
-            c(\vecbf{u}) = \vecbf{u}^T \vecbf{u} - u_m^2 \leq 0 
-        \]
-        \item Terminal constraints ensure intersection with the section
+        \item Spacecraft simulated with LIDAR range sensor
+            \begin{itemize}
+                \item Powerful laser is used to accurately measure the distance from spacecraf to surface
+                \item Accurate timing used to measure the total time of flight \( d = c \frac{t}{2} \)
+            \end{itemize}
     \end{itemize}
         \begin{align*}\label{eq:terminal_constraints}
             \begin{split}
