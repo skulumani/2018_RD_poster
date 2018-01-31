@@ -178,46 +178,24 @@
                 \item Powerful laser is used to accurately measure the distance from spacecraf to surface
                 \item Accurate timing used to measure the total time of flight \( d = c \frac{t}{2} \)
             \end{itemize}
-        \item Combining four iterations of the reachability set
+        \item Multiple scans of the surface creates a point cloud representation of asteroid
         \begin{itemize}
-            \item Each iteration of the reachability set enlarges the achievable states
-            \item We choose a direction on the reachability set which lies closest to the target
-            \[
-                d = \sqrt{k_x \parenth{x_f - x_t }^2 + k_z \parenth{z_f - z_t }^2 + k_{\dot{x}}\parenth{\dot{x}_f - \dot{x}_t }^2 + k_{\dot{z}}\parenth{\dot{z}_f - \dot{z}_t }^2}
-            \]
-            \item This iterative approach avoids the difficulty in choosing accurate initial guesses for optimization
+            \item Immense collection of points capture the surface topology of the asteroid
+            \item Surface reconstruction methods are used to transform the cloud into a mesh 
+            \item Mesh representation is required for polyhedron potential model
         \end{itemize}
     \end{itemize}
     \end{minipage}~
     \begin{minipage}[t]{0.5\columnwidth}
     \begin{itemize}
         \item Spacecraft simulated with LIDAR range sensor
-            \begin{itemize}
-                \item Powerful laser is used to accurately measure the distance from spacecraf to surface
-                \item Accurate timing used to measure the total time of flight \( d = c \frac{t}{2} \)
-            \end{itemize}
+        \item Talk about surface reconstruction
     \end{itemize}
-        \begin{align*}\label{eq:terminal_constraints}
-            \begin{split}
-                m_1 &= y = 0  \\
-                m_2 &= \parenth{\sin \phi_{1_{d}}} \parenth{ x_1^2 + x_2^2 + x_3^2 + x_4^2} - x_1^2 = 0 \\
-                m_3 &= \parenth{\sin \phi_{2_{d}}} \parenth{ x_2^2 + x_3^2 + x_4^2} - x_2^2 = 0\\
-                m_4 &= \parenth{\sin \phi_{3_{d}}} \parenth{ 2 x_3^2 + 2 x_3 \sqrt{x_4^2 + 2 x_4^2}} - x_3 - \sqrt{x_4^2 + x_3^2} = 0 
-            \end{split}
-        \end{align*}
     \end{minipage}
 
 \begin{figure}[htbp] 
-    \centering 
-    \begin{subfigure}[htbp]{0.5\textwidth} 
-        \includegraphics[width=\textwidth,draft]{figures/asteroid-alamy.jpg} 
-        \caption{Equatorial Transfer Trajectory}
-    \end{subfigure}~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. %(or a blank line to force the subfigure onto a new line) 
-    \begin{subfigure}[htbp]{0.5\textwidth} 
-        \includegraphics[width=\textwidth,draft]{figures/asteroid-alamy.jpg} 
-        \caption*{3D Transfer Trajectory}
-    \end{subfigure}
- 
+    \centering
+    \subcaptionbox{LIDAR measurement\label{fig:lidar}}{\includegraphics[width=0.5\textwidth]{figures/itokawa_lidar.jpg}}
 \end{figure}
     
 \vspace{2cm}
@@ -230,17 +208,55 @@
 %---------------------------------------------------------------------------------------
 \begin{column}{\onecolwidth} % third column start
 
-\begin{block}{This is the third column environment} % results block
-	\begin{itemize}
-		\item Make sure to talk about how awesome your research is
-	\end{itemize}
-\end{block} % end of results block
+\begin{block}{Computational Geometry}
+    \begin{itemize}
+        \item \Emph{Computational Geometry} is the study of algorithms and data structures for operating on geometric objects
+            \begin{itemize}
+                \item Extensive use in a variety of fields such as computer graphics, robotics, and design 
+            \end{itemize}
+        \item Asteroid shape is defined as a \Emph{polyhedron}
+        \begin{itemize}
+            \item 3D generalization of a polygon into a mesh
+            \item Shape is defined from a list of vertices and connections between vertices to form triangular faces
+        \end{itemize}
+    \item Geometric algorithms and tools use to efficiently operate on the points to form a mesh
+        \begin{itemize}
+            \item Determine intersection of a ray and the surface
+            \item Determine closest point to a mesh
+            \item Integrate a new vertex into a mesh
+        \end{itemize}
+    \item Efficient computational algorithms and data structures allows for improvements over current methods
+        \begin{enumerate}
+            \item Generate LIDAR measurement
+            \item Find closest point on mesh
+            \item Incorporate measurement as new vertex in mesh
+            \item Rebuild mesh and triangulation
+        \end{enumerate}
+    \end{itemize}
+
+    \begin{figure}
+        \centering
+        \subcaptionbox{Vertex\label{fig:vertex}}{\includegraphics[width=0.5\textwidth]{figures/cube_vertex.jpg}}~   
+        \subcaptionbox{Edge\label{fig:edge}}{\includegraphics[width=0.5\textwidth]{figures/cube_edge.jpg}}
+
+        \subcaptionbox{Face\label{fig:face}}{\includegraphics[width=0.5\textwidth]{figures/cube_face.jpg}}
+    \end{figure}
+\end{block}
 
 \begin{block}{Conclusions} % conclusion
-	\begin{itemize}
-		\item Remind them about everything you already told them
-		\item They should be quite amazed by this point
-	\end{itemize}
+    \begin{itemize}
+        \item Surface reconstruction of asteroid shape from LIDAR measurements
+            \begin{itemize}
+                \item Reduce the amount of time required for mapping of the asteroid
+                \item Incrementaly build shape of asteroid in real time
+                \item Enables updated dynamic model for control system
+            \end{itemize}
+        \item Future work will incorporate further enhancements
+            \begin{itemize}
+                \item Complex dynamics requires accurate integration schemes - \Emph{Variational Integrators}
+                \item Utilize sensor measurements to estimate spacecraft and asteroid state estimation
+            \end{itemize}
+    \end{itemize}
 \end{block} % conclusion
 \end{column}  % third column end
 
