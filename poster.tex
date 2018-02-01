@@ -10,7 +10,7 @@
 \usepackage{poster_packages}
 \input{my_macros}
 \usepackage[orientation=landscape,size=custom,scale=1.32, width=121.92, height=91.44]{beamerposter} 
-%\beamertemplategridbackground[0.1in] % grid for aligning stuff
+% \beamertemplategridbackground[1cm] % grid for aligning stuff
 
 %\setlength{\abovecaptionskip}{0.1cm}
 %\setlength{\belowcaptionskip}{-0.3cm}
@@ -21,7 +21,8 @@
 \newlength{\colsep}
 \newlength{\onecolwidth}
 \newlength{\twocolwidth}
-
+\newlength{\figheight}
+\setlength{\figheight}{0.15\textheight}
 %\setlength{\onecolwidth}{0.23\textwidth} % Width of one column
 %\setlength{\twocolwidth}{0.49\textwidth} % Width of two columns
 \setlength{\onecolwidth}{28cm} % Width of one column
@@ -122,15 +123,15 @@
                         \item Enable quick response landing or operations near asteroid 
                     \end{itemize}
             \end{itemize}
+            \vspace*{1.5cm}
         \end{block} 
-
 \end{column}  % first column end
 
 %-----------------------------------------------------------------------------------------
 % SECOND (WIDE MIDDLE) COLUMN
 %---------------------------------------------------------------------------------------
 \begin{column}{\twocolwidth}
-\begin{block}{Controlled Dynamics around asteroid 25413 Itokawa} % structure block
+\begin{block}{Controlled Dynamics around NEAR Earth Asteroids} % structure block
 	\begin{minipage}{0.5\columnwidth} % left half of this block
 	\begin{itemize}
             \item Spacecraft is modeled as a rigid dumbbell
@@ -154,18 +155,19 @@
 	\end{minipage}% end of left half of block
 	\begin{minipage}{0.5\columnwidth}% right half of block
         \begin{itemize}
-            \item Spacecraft is operating around \Emph{Itokawa}
+            \item Spacecraft is operating around \Emph{Itokawa} and \Emph{Castalia}
             \begin{itemize}
-                \item Potentially hazardous near Earth asteroid which crosses the Earth's orbit
+                \item Potentially hazardous near Earth asteroids which crosses the Earth's orbit
                 \item 25413 Itokawa, discovered in 1998, is an ellipsoid with axes \( 535 \times 294 \times 209 \si{\meter}\)
-                \item Visited by Hayabusa in 2005 and samples returned to the Earth 
-                \item Highest fidelity shape model allows for accurate simulation of sensor measurements
+                \item 4769 Castalia, discovered in 1989, with axes \( 1800 \times 800 \times 800 \si{\meter}\) 
+                \item Shape models generated using spacecraft missions and ground radar
             \end{itemize}
         \end{itemize}
-		\begin{figure}
-			\includegraphics[width=0.7\columnwidth]{figures/itokawa.jpg}
-			\caption*{Asteroid 25413 Itokawa}
-		\end{figure}
+        \begin{figure}
+            \centering
+            \subcaptionbox{25413 Itokawa\label{fig:itokawa}}{\includegraphics[width=0.4\columnwidth,height=0.15\columnheight]{figures/itokawa.jpg}}~
+            \subcaptionbox{4769 Castalia\label{fig:castalia}}{\includegraphics[width=0.4\columnwidth,height=0.15\columnheight]{figures/castalia.jpg}}
+        \end{figure}
 	\end{minipage}%end of right half of block
 \vspace{1.3cm}
 \end{block} % end of structure block
@@ -180,25 +182,39 @@
             \end{itemize}
         \item Multiple scans of the surface creates a point cloud representation of asteroid
         \begin{itemize}
-            \item Immense collection of points capture the surface topology of the asteroid
-            \item Surface reconstruction methods are used to transform the cloud into a mesh 
+            \item Immense collection of points capture the surface topology
+            \item Surface reconstruction is used to transform the cloud into a mesh 
             \item Mesh representation is required for polyhedron potential model
         \end{itemize}
     \end{itemize}
     \end{minipage}~
-    \begin{minipage}[t]{0.5\columnwidth}
+    \begin{minipage}[t]{0.48\columnwidth}
     \begin{itemize}
-        \item Spacecraft simulated with LIDAR range sensor
-        \item Talk about surface reconstruction
+        \item Spacecraft with LIDAR around two Near Earth asteroids
+            \begin{itemize}
+                \item Only Itokawa was visited by a real spacecraft - much higher resolution data is available
+            \end{itemize}
+        \item Spacecraft inertially ``hovering'' while asteorid rotates 
+            \begin{itemize}
+                \item Coupled motion of spacecraft is controlled 
+                \item Inertially Fixed and pointed at asteroid
+            \end{itemize}
+        \item LIDAR measurements occur at \SI{1}{\hertz} 
+        \item \Emph{Point Cloud} used to reconstruct the mesh
     \end{itemize}
     \end{minipage}
+    \vspace{1cm}
+    \begin{figure}
+        \centering
+        \subcaptionbox{Itokawa LIDAR\label{fig:itokawa_lidar}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/itokawa_lidar.jpg}}~
+        \subcaptionbox{Itokawa Point Cloud\label{fig:itokawa_point_cloud}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/itokawa_point_cloud}}~
+        \subcaptionbox{Itokawa Mesh\label{fig:itokawa_mesh}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/itokawa_wireframe.jpg}}\\
 
-\begin{figure}[htbp] 
-    \centering
-    \subcaptionbox{LIDAR measurement\label{fig:lidar}}{\includegraphics[width=0.5\textwidth]{figures/itokawa_lidar.jpg}}
-\end{figure}
-    
-\vspace{2cm}
+        \subcaptionbox{Castalia LIDAR\label{fig:castalia_lidar}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/castalia_lidar.jpg}}~
+        \subcaptionbox{Castalia Point Cloud\label{fig:castalia_point_cloud}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/castalia_point_cloud.jpg}}~
+        \subcaptionbox{Castalia Mesh\label{fig:castalia_mesh}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/castalia_wireframe.jpg}}
+    \end{figure}
+
 \end{block} % end of results block
 \end{column}
 
@@ -236,10 +252,10 @@
 
     \begin{figure}
         \centering
-        \subcaptionbox{Vertex\label{fig:vertex}}{\includegraphics[width=0.5\textwidth]{figures/cube_vertex.jpg}}~   
-        \subcaptionbox{Edge\label{fig:edge}}{\includegraphics[width=0.5\textwidth]{figures/cube_edge.jpg}}
+        \subcaptionbox{Vertex\label{fig:vertex}}{\includegraphics[width=0.52\textwidth]{figures/cube_vertex.jpg}}~   
+        \subcaptionbox{Edge\label{fig:edge}}{\includegraphics[width=0.52\textwidth]{figures/cube_edge.jpg}}\\
 
-        \subcaptionbox{Face\label{fig:face}}{\includegraphics[width=0.5\textwidth]{figures/cube_face.jpg}}
+        \subcaptionbox{Face\label{fig:face}}{\includegraphics[width=0.6\textwidth]{figures/cube_face.jpg}}
     \end{figure}
 \end{block}
 
@@ -257,6 +273,7 @@
                 \item Utilize sensor measurements to estimate spacecraft and asteroid state estimation
             \end{itemize}
     \end{itemize}
+    \vspace*{1.6cm}
 \end{block} % conclusion
 \end{column}  % third column end
 
