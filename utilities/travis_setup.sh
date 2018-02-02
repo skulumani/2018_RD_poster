@@ -23,7 +23,7 @@ tlmgr update --self --all --no-auto-install
 
 echo "Finished updating TexLive"
 
-# echo "Download and setup texmf tree"
-# git clone https://github.com/skulumani/texmf.git ~/texmf
+echo "Download and setup texmf tree"
+git clone https://github.com/skulumani/texmf.git ~/texmf
 
 
