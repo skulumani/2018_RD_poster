@@ -7,18 +7,20 @@ cache:
   directories:
   - "/tmp/texlive"
   - "$HOME/.texlive"
+  timeout: 3600
 before_install:
 - bash ./utilities/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
-- latexmk -pdf -interaction=nonstopmode -halt-on-error poster.tex
+- latexmk -pdf -interaction=nonstopmode -halt-on-error 
 after_success:
-- bash ./utilities/deploy.sh
 deploy:
   provider: releases
   api_key:
-    secure: MEIFw0bLaFELtzMGqxCfr5OY691D5oaCT+Uqa+KgKZ/9ctI0IGpaBw8xuV6B+h/uGo4vpqstKhQkciMzhZLKmE4C3kb8DUFWMgevssDqB+pNh1DPFXpKSeERfSHPUoYvzz4udCCTJZLsMx8EUnk+kMXaI1wwrgVO+ym8VyCJucfHtEvb3AVLqylvKn6Njeb1WFjy9TFu6XfPnJdfWhhWAjVV1bADlOoK0kp424ViEB7ZFZnjbYBDOaHj5J2wfx4Fwe1bChOxhdSwTuWzno/dxdoLEbHdxT5IJ+tdTK6XMms407Kk0FiZ5hcPkVm7pwgJEbe/ZlEjWLDtDp+twaufR0f7o3nKgI5GydVjk8cXOL/MhYK1ysNKyfjlBHt2K6nI7ePArSlkwP66RZlM0RSVeUTQaDbw7NAdP/cyAzml81D3sfbmmoU4tBZPdP9KpIaKvtFHV3JOvLFMjdMF5HqW9pG/x0+y33m0C5jjVhdZmKXuP41UUdJb9i18Ej/Xjz7l1M8stGAhwWy6Sfl4gDZgYrEZnZyaDsO1YZ51QmUooiYuiEyc4e4EpDu4u+4j9wNzxqJe2rsKjJN3ZYiIMxPgpNJM1OKUAXE3oGL3ifAeJuhbxOYwhON0GMfDIo8pKTqOPRz0gM26rkQqLCmf/CQ16nWL+yZbHn+0q7Gduorf4tw=
-  file: poster.pdf
+    secure: eIV+4hRNiq7s6CXFuBJDimLBuQwQSLbzQHiXniTMhA8bJ3DwfHgb+LM1YqySmtlePLaLSSUjhE9fBT4UuOzubDPSIS8Egs47R6HRKTdw558D3V7xbqtC+PMRvlI8zGw96yNfLr9641qNN/EBaVGZjjFVKjh5JyTYxTkUHbFV5bOBUTwULmqCM0t0eCshg0nZQIe+mxLuUpS6oLhlfldzc95CtZfAXiWtIf6mDmrB+G+rBhSvrPs+NyIxLBLZ0aAPgR1BfFwUq6wfBOsfyIWEiQB9yWTvCB/FpLsgPx9K1gZXcjUS/geJLsYZcYP9fGiTFLsIGHBGB9QTUcWJYuDD/IL5BSMvyzMLZZ0CfwDizWnJgbgIZ6ayyT5wp+Z7md7QDbmHRAnqhoAmbsWvUmcpYi6lz0yVKmNcg/5HUDIFvhO/z7P83BV7uohaBgfxPoP+Jv+y+kQFSyBuWGHDwmcnMSfVaop95CV4wYSLODs+ghrtJ0Xvbm4rjvwObhtTvilsAnDOiCkRLtdrxkyY0awhvFgxS3z8riwEBGu6384tOlTZuioJZ3RFwAjtTgNZrZPY3Rx56MlVU9P9ZZ0py6dDmLaKGialdBAyC/9xUjS4WDHguV86Dvul5LtmevP6SKyPqIHXoHLY2B/eNkPzJ7CcGBGaW33UY7O/LvbTXLAkN1Q=
   skip_cleanup: true
+  file_glob: true
+  file: poster.pdf
   on:
-    repo: fdcl-gwu/poster_template
+    repo: skulumani/tikz
+    tags: true
