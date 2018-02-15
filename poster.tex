@@ -10,7 +10,7 @@
 \usepackage{poster_packages}
 \input{my_macros}
 \usepackage[orientation=landscape,size=custom,scale=1.32, width=121.92, height=91.44]{beamerposter} 
-% \beamertemplategridbackground[1cm] % grid for aligning stuff
+% \beamertemplategridbackground[0.1cm] % grid for aligning stuff
 
 %\setlength{\abovecaptionskip}{0.1cm}
 %\setlength{\belowcaptionskip}{-0.3cm}
@@ -70,9 +70,10 @@
             \vspace{0.2in}
             \begin{figure}
                 \centering
-                \subcaptionbox{Asteroid Mining\label{fig:ast_mining}}{\includegraphics[width=0.4\columnwidth,height=7cm]{figures/asteroid-mining-feature-8.jpg}}~
-                \subcaptionbox{Asteroid Impact\label{fig:ast_impact}}{\includegraphics[width=0.4\textwidth,height=7cm,keepaspectratio]{figures/asteroid-alamy.jpg}}
+                \subcaptionbox{Asteroid Mining\label{fig:ast_mining}}{\includegraphics[width=0.4\columnwidth,height=7.3cm]{figures/asteroid-mining-feature-8.jpg}}~
+                \subcaptionbox{Asteroid Impact\label{fig:ast_impact}}{\includegraphics[width=0.4\textwidth,height=7.3cm,keepaspectratio]{figures/asteroid-alamy.jpg}}
             \end{figure}
+            \vspace*{0.2cm}
         \end{block} % end of background block
 
         \begin{block}{Technical Challenges}
@@ -83,17 +84,19 @@
                         \item At arrival, spacecraft is flying into an unknown environment 
                         \item Spacecraft must autonomously survey the asteroid and handle unknown perturbations
                     \end{itemize}
-                \item Optimal trajectory design is complicated
+                \item Astrodynamic trajectory design is complicated
                     \begin{itemize}
                         \item Highly nonlinear and chaotic dynamics requires intuition by designer
                         \item Using low-thrust propulsion adds additional difficulties in accurately capturing the small perturbations
                     \end{itemize}
-                \item Astrodynamic trajectory design typically uses direct optimal control
+                \item Difficult to find 3D asteroid shape from the Earth
                     \begin{itemize}
-                        \item Large nonlinear programming problem inherently approximates the true optimal solution
-                        \item High dimensionality of the solution makes it extremely computationally intensive
+                        \item Current method requires extensive mapping period
+                        \item Exact shape is critical for close-proximity missions - shape defines the gravity
+                        \item Improve the state of the art to allow for missions without prior shape knowledge
                     \end{itemize}
             \end{itemize}
+            \vspace*{0.2cm}
         \end{block} 
 
         \begin{block}{Shape/Gravitational Modeling}
@@ -121,9 +124,10 @@
                         \item Autonomous and agile reconstruction of shape from spacecraft measurements is required
                         \item Avoid long delays/costs with ground based processing
                         \item Enable quick response landing or operations near asteroid 
+                        \item Allow for a much wider class of potential missions and operations
                     \end{itemize}
             \end{itemize}
-            \vspace*{1.5cm}
+            \vspace*{0.25cm}
         \end{block} 
 \end{column}  % first column end
 
@@ -157,19 +161,18 @@
         \begin{itemize}
             \item Spacecraft is operating around \Emph{Itokawa} and \Emph{Castalia}
             \begin{itemize}
-                \item Potentially hazardous near Earth asteroids which crosses the Earth's orbit
-                \item 25413 Itokawa, discovered in 1998, is an ellipsoid with axes \( 535 \times 294 \times 209 \si{\meter}\)
+                \item Potentially hazardous near Earth asteroids which cross our orbit 
+                \item 25413 Itokawa, discovered in 1998, with axes \( 535 \times 294 \times 209 \si{\meter}\)
                 \item 4769 Castalia, discovered in 1989, with axes \( 1800 \times 800 \times 800 \si{\meter}\) 
-                \item Shape models generated using spacecraft missions and ground radar
+                \item Truth shape models generated using previous spacecraft missions
             \end{itemize}
         \end{itemize}
         \begin{figure}
             \centering
-            \subcaptionbox{25413 Itokawa\label{fig:itokawa}}{\includegraphics[width=0.4\columnwidth,height=0.15\columnheight]{figures/itokawa.jpg}}~
-            \subcaptionbox{4769 Castalia\label{fig:castalia}}{\includegraphics[width=0.4\columnwidth,height=0.15\columnheight]{figures/castalia.jpg}}
+            % \subcaptionbox{25413 Itokawa\label{fig:itokawa}}{\includegraphics[width=0.4\columnwidth,height=0.15\columnheight]{figures/itokawa.jpg}}~
+            \subcaptionbox{4769 Castalia\label{fig:castalia}}{\includegraphics[keepaspectratio,width=0.7\columnwidth]{figures/castalia.jpg}}
         \end{figure}
 	\end{minipage}%end of right half of block
-\vspace{1.3cm}
 \end{block} % end of structure block
 
 \begin{block}{Shape model reconstruction from LIDAR} % results block
@@ -177,7 +180,7 @@
     \begin{itemize}
         \item Reconstruct the shape of Itokawa from LIDAR
             \begin{itemize}
-                \item Powerful laser is used to accurately measure the distance from spacecraf to surface
+                \item Powerful laser is used to accurately measure the distance from spacecraft to surface of asteroid
                 \item Accurate timing used to measure the total time of flight \( d = c \frac{t}{2} \)
             \end{itemize}
         \item Multiple scans of the surface creates a point cloud representation of asteroid
@@ -214,7 +217,7 @@
         \subcaptionbox{Castalia Point Cloud\label{fig:castalia_point_cloud}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/castalia_point_cloud.jpg}}~
         \subcaptionbox{Castalia Mesh\label{fig:castalia_mesh}}{\includegraphics[width=0.3\textwidth,height=\figheight]{figures/castalia_wireframe.jpg}}
     \end{figure}
-
+    \vspace*{0.1cm}
 \end{block} % end of results block
 \end{column}
 
@@ -228,7 +231,7 @@
     \begin{itemize}
         \item \Emph{Computational Geometry} is the study of algorithms and data structures for operating on geometric objects
             \begin{itemize}
-                \item Extensive use in a variety of fields such as computer graphics, robotics, and design 
+                \item Extensive use in a variety of fields such as computer graphics, robotics, and mechanical design
             \end{itemize}
         \item Asteroid shape is defined as a \Emph{polyhedron}
         \begin{itemize}
@@ -261,11 +264,12 @@
 
 \begin{block}{Conclusions} % conclusion
     \begin{itemize}
-        \item Surface reconstruction of asteroid shape from LIDAR measurements
+        \item Shape reconstruction of an asteroid from LIDAR measurements
             \begin{itemize}
                 \item Reduce the amount of time required for mapping of the asteroid
                 \item Incrementaly build shape of asteroid in real time
                 \item Enables updated dynamic model for control system
+                \item Allows for complex close-proximity missions without the need for long duration mapping period
             \end{itemize}
         \item Future work will incorporate further enhancements
             \begin{itemize}
@@ -273,7 +277,6 @@
                 \item Utilize sensor measurements to estimate spacecraft and asteroid state estimation
             \end{itemize}
     \end{itemize}
-    \vspace*{1.6cm}
 \end{block} % conclusion
 \end{column}  % third column end
 
