@@ -86,14 +86,14 @@
                     \end{itemize}
                 \item Astrodynamic trajectory design is complicated
                     \begin{itemize}
-                        \item Highly nonlinear and chaotic dynamics requires intuition by designer
+                        \item Highly nonlinear and chaotic dynamics requires intuition by designer and large computational effort
                         \item Using low-thrust propulsion adds additional difficulties in accurately capturing the small perturbations
                     \end{itemize}
                 \item Difficult to find 3D asteroid shape from the Earth
                     \begin{itemize}
                         \item Current method requires extensive mapping period
-                        \item Exact shape is critical for close-proximity missions - shape defines the gravity
-                        \item Improve the state of the art to allow for missions without prior shape knowledge
+                        \item Exact shape is critical for close-proximity missions - shape defines the gravitational attraction around the asteroid
+                        \item Improve the state of the art to allow for missions without prior shape knowledge or rapid response operations
                     \end{itemize}
             \end{itemize}
             \vspace*{0.2cm}
@@ -145,7 +145,7 @@
                             \centering
                             \includegraphics[width=0.6\columnwidth]{figures/dawn.jpg}
                         \end{figure}
-                    \item Accurately captures the complex interaction of rotation and gravititational gradient
+                    \item Accurately captures the complex interaction of translation and rotation caused by a gravitational gradient
                 \end{itemize}
             \item Translational and Rotational Motion is tightly coupled
                 \begin{align*}
@@ -197,7 +197,7 @@
             \begin{itemize}
                 \item Only Itokawa was visited by a real spacecraft - much higher resolution data is available
             \end{itemize}
-        \item Spacecraft inertially ``hovering'' while asteorid rotates 
+        \item Spacecraft inertially ``hovering'' while asteroid rotates 
             \begin{itemize}
                 \item Coupled motion of spacecraft is controlled 
                 \item Inertially Fixed and pointed at asteroid
@@ -267,14 +267,14 @@
         \item Shape reconstruction of an asteroid from LIDAR measurements
             \begin{itemize}
                 \item Reduce the amount of time required for mapping of the asteroid
-                \item Incrementaly build shape of asteroid in real time
+                \item Incrementally build shape of asteroid in real time
                 \item Enables updated dynamic model for control system
                 \item Allows for complex close-proximity missions without the need for long duration mapping period
             \end{itemize}
         \item Future work will incorporate further enhancements
             \begin{itemize}
                 \item Complex dynamics requires accurate integration schemes - \Emph{Variational Integrators}
-                \item Utilize sensor measurements to estimate spacecraft and asteroid state estimation
+                \item Utilize sensor measurements for simultaneous spacecraft and asteroid state estimation
             \end{itemize}
     \end{itemize}
 \end{block} % conclusion
