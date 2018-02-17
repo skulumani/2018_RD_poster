@@ -4,7 +4,7 @@
 
 
 [travis_shield]: https://travis-ci.org/skulumani/2018_RD_poster.svg?branch=master
-[release_shield]: https://img.shields.io/github/release/skulumani/22018_RD_poster.svg
+[release_shield]: https://img.shields.io/github/release/skulumani/2018_RD_poster.svg
 [version_shield]: https://badge.fury.io/gh/skulumani%2F2018_RD_poster.svg
 [last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/2018_RD_poster.svg
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/2018_RD_poster.svg
